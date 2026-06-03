@@ -55,7 +55,7 @@ On Ubuntu or Debian:
 
 ```sh
 sudo apt install \
-  build-essential meson ninja-build valac git gettext pkg-config scdoc \
+  build-essential meson ninja-build valac git gettext pkg-config scdoc golang-go \
   gobject-introspection wayland-protocols \
   libgtk-4-dev libglib2.0-dev libgee-0.8-dev libjson-glib-dev libpeas-2-dev \
   libgtk4-layer-shell-dev libgtksourceview-5-dev libvte-2.91-gtk4-dev \
@@ -75,21 +75,21 @@ On Arch:
 
 ```sh
 sudo pacman -S --needed \
-  base-devel meson ninja vala git gettext scdoc \
+  base-devel gcc go meson ninja vala git gettext scdoc \
   gobject-introspection wayland-protocols \
-  gtk4 glib2 libgee json-glib libpeas2 gtk4-layer-shell gtksourceview5 vte4 \
+  gtk4 glib2 libgee json-glib libpeas-2 gtk4-layer-shell gtksourceview5 vte4 \
   gnome-desktop gnome-online-accounts gstreamer gst-plugins-base libpipewire \
   libpulse networkmanager upower polkit libsoup3 tinysparql libsecret \
   libgudev librsvg poppler-glib webkitgtk-6.0 libxml2 pango cairo pixman \
   libdrm libinput libxkbcommon wayland libxcb xcb-util-wm at-spi2-core \
-  libdbusmenu-glib systemd libpng libsodium libgcrypt wlroots
+  libdbusmenu-glib systemd libpng libsodium libgcrypt
 ```
 
 On Fedora:
 
 ```sh
 sudo dnf install \
-  @development-tools meson ninja-build vala git gettext pkgconf-pkg-config scdoc \
+  @development-tools meson ninja-build vala git gettext pkgconf-pkg-config scdoc golang \
   gobject-introspection-devel wayland-protocols-devel \
   gtk4-devel glib2-devel libgee-devel json-glib-devel libpeas-devel \
   gtk4-layer-shell-devel gtksourceview5-devel vte291-gtk4-devel \
