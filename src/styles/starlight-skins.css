@@ -21,6 +21,21 @@
   --sl-color-hairline: #333333;
   --sl-color-hairline-light: #333333;
   --sl-color-hairline-shade: #1f1f1f;
+  --sl-color-red: hsl(var(--sl-hue-red), 82%, 63%);
+  --sl-color-red-low: hsl(var(--sl-hue-red), 39%, 22%);
+  --sl-color-red-high: hsl(var(--sl-hue-red), 82%, 87%);
+  --sl-color-orange: hsl(var(--sl-hue-orange), 82%, 63%);
+  --sl-color-orange-low: hsl(var(--sl-hue-orange), 39%, 22%);
+  --sl-color-orange-high: hsl(var(--sl-hue-orange), 82%, 87%);
+  --sl-color-green: hsl(var(--sl-hue-green), 82%, 63%);
+  --sl-color-green-low: hsl(var(--sl-hue-green), 39%, 22%);
+  --sl-color-green-high: hsl(var(--sl-hue-green), 82%, 80%);
+  --sl-color-blue: hsl(var(--sl-hue-blue), 100%, 60%);
+  --sl-color-blue-low: hsl(var(--sl-hue-blue), 54%, 20%);
+  --sl-color-blue-high: hsl(var(--sl-hue-blue), 100%, 87%);
+  --sl-color-purple: hsl(var(--sl-hue-purple), 82%, 63%);
+  --sl-color-purple-low: hsl(var(--sl-hue-purple), 39%, 22%);
+  --sl-color-purple-high: hsl(var(--sl-hue-purple), 82%, 89%);
   --sl-font: 'Montserrat Variable', system-ui, sans-serif;
 }
 
@@ -29,3 +44,5 @@
 }
 
 .site-title img { height: 20px; width: auto; }
+
+starlight-theme-select { display: none; }
