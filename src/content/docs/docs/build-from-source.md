@@ -113,6 +113,35 @@ The `vetro` transpiler is a separate program, kept in
 [its own repository](https://github.com/singularityos-lab/vetro); install it and
 make sure it is on your `PATH` before building.
 
+## Immutable systems: host runtime libraries
+
+On immutable distributions you install into `/opt` with `make deploy-host`, but the
+shared libraries Singularity links against still have to be present on the host
+image. On Vanilla OS 3 Reunion (Debian-based) the packages to layer onto the host
+are:
+
+```
+libgtk4-layer-shell0
+libliftoff0
+libpeas-2-0
+libseat1
+libxcb-composite0
+libxcb-errors0
+libxcb-ewmh2
+libxcb-icccm4
+libxcb-render-util0
+libxcb-xinput0
+xdg-desktop-portal-wlr
+libnss3-tools
+libgtksourceview-5-0
+```
+
+:::caution
+These are the exact names for Vanilla OS 3 Reunion. The equivalent runtime packages
+exist under different names on other distributions, so check them against your own
+repositories.
+:::
+
 ## Build a single component
 
 Each component builds on its own with meson, as long as `libsingularity` is
