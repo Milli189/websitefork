@@ -405,7 +405,7 @@ a.tier .badge { position: absolute; top: 18px; right: 18px; font-family: var(--f
 .post-back:hover { color: var(--hi); }
 .post-date { color: var(--text-faint); font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .post-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: normal; margin-bottom: 36px; }
-.post-body { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; }
+.post-body { color: var(--text-muted); font-size: 19px; font-weight: 400; line-height: 1.8; }
 .post-body p { margin: 0 0 20px; }
 .post-body a { color: var(--hi); text-decoration: underline; }
 .post-body h2 { color: var(--text-main); font-size: 1.5rem; font-weight: normal; margin: 40px 0 16px; }
@@ -413,6 +413,11 @@ a.tier .badge { position: absolute; top: 18px; right: 18px; font-family: var(--f
 .post-body pre { background: var(--surface); border: 1px solid var(--border-faint); padding: 16px; overflow-x: auto; }
 .post-body pre code { background: none; border: none; padding: 0; }
 .post-body img { max-width: 100%; height: auto; }
+.post-share { display: flex; gap: 10px; margin-top: 48px; padding-top: 26px; border-top: 1px solid var(--border-faint); }
+.share-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--border-color); background: none; color: var(--text-main); cursor: pointer; transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease; }
+.share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.share-btn:hover { border-color: var(--hi); color: var(--hi); }
+.share-btn.copied { background: var(--hi); border-color: var(--hi); color: #000; }
 
 footer.site {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
