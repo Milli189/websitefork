@@ -91,7 +91,7 @@ On Fedora:
 sudo dnf install \
   @development-tools meson ninja-build vala git gettext pkgconf-pkg-config scdoc \
   gobject-introspection-devel wayland-protocols-devel \
-  gtk4-devel glib2-devel libgee-devel json-glib-devel libpeas2-devel \
+  gtk4-devel glib2-devel libgee-devel json-glib-devel libpeas-devel \
   gtk4-layer-shell-devel gtksourceview5-devel vte291-gtk4-devel \
   gnome-desktop4-devel gnome-online-accounts-devel \
   gstreamer1-devel gstreamer1-plugins-base-devel \
