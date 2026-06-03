@@ -60,7 +60,7 @@ sudo apt install \
   libgtk-4-dev libglib2.0-dev libgee-0.8-dev libjson-glib-dev libpeas-2-dev \
   libgtk4-layer-shell-dev libgtksourceview-5-dev libvte-2.91-gtk4-dev \
   libgnome-desktop-4-dev libgoa-1.0-dev libgoa-backend-1.0-dev \
-  libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+  libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libpipewire-0.3-dev \
   libpulse-dev libnm-dev libupower-glib-dev \
   libpolkit-agent-1-dev libpolkit-gobject-1-dev libsoup-3.0-dev \
   libtracker-sparql-3.0-dev libsecret-1-dev libgudev-1.0-dev librsvg2-dev \
@@ -78,7 +78,7 @@ sudo pacman -S --needed \
   base-devel meson ninja vala git gettext scdoc \
   gobject-introspection wayland-protocols \
   gtk4 glib2 libgee json-glib libpeas2 gtk4-layer-shell gtksourceview5 vte4 \
-  gnome-desktop gnome-online-accounts gstreamer gst-plugins-base \
+  gnome-desktop gnome-online-accounts gstreamer gst-plugins-base libpipewire \
   libpulse networkmanager upower polkit libsoup3 tinysparql libsecret \
   libgudev librsvg poppler-glib webkitgtk-6.0 libxml2 pango cairo pixman \
   libdrm libinput libxkbcommon wayland libxcb xcb-util-wm at-spi2-core \
@@ -94,7 +94,7 @@ sudo dnf install \
   gtk4-devel glib2-devel libgee-devel json-glib-devel libpeas-devel \
   gtk4-layer-shell-devel gtksourceview5-devel vte291-gtk4-devel \
   gnome-desktop4-devel gnome-online-accounts-devel \
-  gstreamer1-devel gstreamer1-plugins-base-devel \
+  gstreamer1-devel gstreamer1-plugins-base-devel pipewire-devel \
   pulseaudio-libs-devel NetworkManager-libnm-devel upower-devel \
   polkit-devel libsoup3-devel tinysparql-devel libsecret-devel libgudev-devel \
   librsvg2-devel poppler-glib-devel webkitgtk6.0-devel libxml2-devel \
