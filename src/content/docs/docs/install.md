@@ -32,7 +32,7 @@ Today, the way to run the desktop is to build it. The meta repository wires
 every component together as submodules and builds them with a single command:
 
 ```sh
-git clone --recurse-submodules <meta-repo-url> singularity-desktop
+git clone --recurse-submodules https://github.com/singularityos-lab/singularity-desktop.git singularity-desktop
 cd singularity-desktop
 make compile
 make install

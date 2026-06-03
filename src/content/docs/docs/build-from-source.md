@@ -25,7 +25,7 @@ On immutable systems, do not install into the system prefix. Use
 The meta repo wires everything together as submodules:
 
 ```sh
-git clone --recurse-submodules <meta-repo-url> singularity-desktop
+git clone --recurse-submodules https://github.com/singularityos-lab/singularity-desktop.git singularity-desktop
 cd singularity-desktop
 make compile
 ```
