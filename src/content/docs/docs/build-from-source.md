@@ -104,6 +104,11 @@ sudo dnf install \
   libsodium-devel libgcrypt-devel wlroots-devel
 ```
 
+If your distribution does not package the `wlroots` version labwc needs, labwc
+builds it from source as part of the build. That path also needs `hwdata` (and
+`glslang` for wlroots' Vulkan renderer), so install `hwdata` if the labwc build
+stops on a missing `pnp.ids`.
+
 The `vetro` transpiler is a separate program, kept in
 [its own repository](https://github.com/singularityos-lab/vetro); install it and
 make sure it is on your `PATH` before building.
