@@ -16,8 +16,11 @@ care about first.
 So far it has been tested only on Vanilla OS 2 Orchid, Vanilla OS 3 Reunion,
 Debian Sid, and Ubuntu 26.04 (Resolute Raccoon). Other systems may not work.
 
-On immutable systems, do not install into the system prefix. Use
-`make deploy-host`, which deploys to `/opt/local`, instead.
+Singularity always installs into the self-contained prefix `/opt/local`, never
+into the system prefix. It runs from there because the session adds `/opt/local`
+to `PATH`, `LD_LIBRARY_PATH` and `XDG_DATA_DIRS`. This keeps the system clean
+(remove it with `rm -rf /opt/local`) and works on immutable systems where `/usr`
+is read-only.
 :::
 
 ## The full build
@@ -30,8 +33,10 @@ cd singularity-desktop
 make compile
 ```
 
-`make install` installs to `/usr/local`, with an optional `/usr`.
-`make deploy-host` deploys to `/opt/local` for container-based workflows.
+Both install targets write to `/opt/local`: `make install` does a lighter
+install, while `make deploy-host` is the full deploy (bundled libraries, portal
+and systemd wiring, the icon theme, and the session entry). Either way, run
+Singularity from inside its session for the `/opt/local` environment to apply.
 
 ## What you need
 
