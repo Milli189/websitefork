@@ -14,6 +14,23 @@ sessions, and that you picked the Singularity session in the
 standard system locations, so a session installed somewhere unusual will not
 appear.
 
+## The shell, dock, and panels open as separate windows
+
+If the desktop components appear as ordinary floating windows instead of being
+anchored to the screen edges, Singularity was started outside its compositor.
+The shell, dock, and panels are Wayland layer-shell surfaces that rely on labwc
+to place them; launched on their own, or inside another compositor, they fall
+back to regular toplevel windows. Start the desktop through the Singularity
+session from the [greeter](/docs/first-boot/), or from a TTY run
+`singularity-labwc-session`, which brings up labwc and the shell together.
+
+## The desktop has no icons
+
+Singularity currently draws its icons from the Adwaita icon theme. If buttons
+and apps show up without any icons, that icon pack is missing. Install your
+distribution's Adwaita icon theme (commonly packaged as `adwaita-icon-theme`)
+and restart the session.
+
 ## The shell crashed or looks wrong
 
 The session keeps the shell alive and restarts it if it stops, so a glitch
