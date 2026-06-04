@@ -68,7 +68,7 @@ sudo apt install \
   libpango1.0-dev libcairo2-dev libpixman-1-dev libdrm-dev libinput-dev \
   libxkbcommon-dev libwayland-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev \
   libatspi2.0-dev libdbusmenu-glib-dev libsystemd-dev libpng-dev \
-  libsodium-dev libgcrypt20-dev
+  libsodium-dev libgcrypt20-dev libpam0g-dev
 ```
 
 On Arch:
@@ -82,7 +82,7 @@ sudo pacman -S --needed \
   libpulse networkmanager upower polkit libsoup3 tinysparql libsecret \
   libgudev librsvg poppler-glib webkitgtk-6.0 libxml2 pango cairo pixman \
   libdrm libinput libxkbcommon wayland libxcb xcb-util-wm at-spi2-core \
-  libdbusmenu-glib systemd libpng libsodium libgcrypt
+  libdbusmenu-glib systemd libpng libsodium libgcrypt pam
 ```
 
 On Fedora:
@@ -101,7 +101,7 @@ sudo dnf install \
   pango-devel cairo-devel pixman-devel libdrm-devel libinput-devel \
   libxkbcommon-devel wayland-devel libxcb-devel xcb-util-wm-devel \
   at-spi2-core-devel libdbusmenu-devel systemd-devel libpng-devel \
-  libsodium-devel libgcrypt-devel wlroots-devel
+  libsodium-devel libgcrypt-devel pam-devel wlroots-devel
 ```
 
 If your distribution does not package the `wlroots` version labwc needs, labwc
