@@ -14,6 +14,28 @@ sessions, and that you picked the Singularity session in the
 standard system locations, so a session installed somewhere unusual will not
 appear.
 
+## Singularity is not listed on the login screen
+
+Display managers (SDDM, GDM, and the rest) only show sessions whose `.desktop`
+file sits in a `wayland-sessions` directory they scan, which in practice means
+`/usr/share/wayland-sessions`. If you installed under a prefix like `/usr/local`
+or `/opt/local`, the entry lands in that prefix's `share/wayland-sessions` and
+the login screen does not list it.
+
+On a normal system, place the session entry in the canonical location, leaving
+`Exec` pointing at wherever the launcher actually lives:
+
+```sh
+sudo cp /opt/local/share/wayland-sessions/singularity.desktop \
+  /usr/share/wayland-sessions/singularity.desktop
+```
+
+`make install-session` already covers GDM: it drops an `XDG_DATA_DIRS` override
+into `gdm.service.d` so GDM also scans `/opt/local/share` and `/usr/local/share`.
+Other display managers do not read that override, so use the copy above for them.
+On immutable systems where `/usr/share` is read-only, point your display
+manager's `XDG_DATA_DIRS` at the prefix you installed into instead.
+
 ## The shell, dock, and panels open as separate windows
 
 If the desktop components appear as ordinary floating windows instead of being
