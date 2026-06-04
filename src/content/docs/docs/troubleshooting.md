@@ -53,6 +53,14 @@ and apps show up without any icons, that icon pack is missing. Install your
 distribution's Adwaita icon theme (commonly packaged as `adwaita-icon-theme`)
 and restart the session.
 
+## X11 apps (Discord, Steam, ...) do not launch
+
+X11 applications run through Xwayland. If they fail with `Missing X server or
+$DISPLAY`, the compositor was built without Xwayland: when the Xwayland package
+is missing at build time, wlroots and labwc quietly disable X11 support. Install
+your distribution's Xwayland package (`xwayland` on Debian/Ubuntu, `xorg-xwayland`
+on Arch, `xorg-x11-server-Xwayland-devel` on Fedora) and rebuild.
+
 ## The shell crashed or looks wrong
 
 The session keeps the shell alive and restarts it if it stops, so a glitch
