@@ -110,8 +110,19 @@ builds it from source as part of the build. That path also needs `hwdata` (and
 stops on a missing `pnp.ids`.
 
 The `vetro` transpiler is a separate program, kept in
-[its own repository](https://github.com/singularityos-lab/vetro); install it and
-make sure it is on your `PATH` before building.
+[its own repository](https://github.com/singularityos-lab/vetro), and the build
+does not fetch it for you. It is a small Go tool, so build it once and drop the
+binary somewhere on your `PATH` (Go is already in the dependency lists above):
+
+```sh
+git clone https://github.com/singularityos-lab/vetro.git
+cd vetro
+go build -o vetro .
+sudo install -Dm755 vetro /usr/local/bin/vetro
+```
+
+Confirm it resolves with `which vetro` before building; meson calls it by name to
+turn the `.vetro` files into GTK `.ui`.
 
 ## Immutable systems: host runtime libraries
 
