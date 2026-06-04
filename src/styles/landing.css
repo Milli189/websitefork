@@ -449,6 +449,11 @@ footer.site a:hover { color: var(--hi); }
   header.site nav a:last-child { border-bottom: none; }
 }
 
+.post-body a[href*="github.com"],
+.post-body a[href*="discord.gg"],
+.post-body a[href*="discord.com"] {
+  white-space: nowrap;
+}
 .post-body a[href*="github.com"]::before,
 .post-body a[href*="discord.gg"]::before,
 .post-body a[href*="discord.com"]::before {
