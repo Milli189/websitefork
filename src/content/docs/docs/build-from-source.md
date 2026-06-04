@@ -109,6 +109,8 @@ builds it from source as part of the build. That path also needs `hwdata` (and
 `glslang` for wlroots' Vulkan renderer), so install `hwdata` if the labwc build
 stops on a missing `pnp.ids`.
 
+## Vetro
+
 The `vetro` transpiler is a separate program, kept in
 [its own repository](https://github.com/singularityos-lab/vetro), and the build
 does not fetch it for you. The quickest way is to download the prebuilt binary
