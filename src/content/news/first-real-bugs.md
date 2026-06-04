@@ -1,0 +1,24 @@
+---
+title: First real bugs
+date: 2026-06-04
+description: People started building Singularity from source and found the rough edges. Here's what broke this week and what I fixed.
+---
+
+I didn't expect this much interest on day zero. People I've never met were already building Singularity from source, by hand, on completely different distros: Debian here, Fedora there, Arch, Garuda. That's the side of open source I hadn't felt in a while on my own projects, and honestly it means a lot.
+
+It also means they walked straight into the rough edges, which is exactly what I was hoping for. Until now I'd only tested on my own machines, so I only ever find the bugs my own setup happens to have. A few reports from other people's machines are worth ten of my own guesses.
+
+Here's what landed:
+
+- Discord, Steam and other X11 apps wouldn't open ([github.com/.../issues/2](https://github.com/singularityos-lab/singularity-desktop/issues/2))
+- taking a screenshot did nothing at all ([github.com/.../issues/3](https://github.com/singularityos-lab/singularity-desktop/issues/3))
+- most of the icons were missing ([github.com/.../issues/4](https://github.com/singularityos-lab/singularity-desktop/issues/4))
+- the dock would hide on autohide and never come back ([github.com/.../issues/5](https://github.com/singularityos-lab/singularity-desktop/issues/5))
+- some apps could crash on launch when built on their own ([github.com/.../libsingularity/issues/3](https://github.com/singularityos-lab/libsingularity/issues/3))
+- and a build that only worked through `make`, not plain meson, chased down with help on [Discord](https://discord.gg/Bj638UXffN)
+
+Many of them shared one root: a lot of "nothing works" really means "this is running outside the Singularity session." The desktop installs into its own prefix, and the session is what wires it up. The panel and dock are layer-shell surfaces that need the labwc compositor, and screenshots and X11 apps go through it too. Outside the session, half of it can't work. That one I answered with clearer errors and better docs.
+
+The rest were real bugs. The installer wasn't copying the icon theme the shell pins to. The dock's reveal logic was tied to an animation that could be interrupted, so it could get stuck hidden; it now follows state and recovers on its own. A few code paths read a settings schema without the safe check and could crash. And the meson build relied on a Makefile side effect to find its introspection data, now made explicit.
+
+None of this is glamorous. It's the unphotogenic work that turns a desktop from a demo into something you can leave running. If you try Singularity and something breaks, please tell me: open an issue on [GitHub](https://github.com/singularityos-lab) or come find me on [Discord](https://discord.gg/Bj638UXffN). It's the fastest way to make this better.
