@@ -78,8 +78,12 @@ main_ui = custom_target('main_ui_gen',
 )
 ```
 
-The transpiler is a standalone program, kept in its own repository, and must be on
-your `PATH` for the build to find it.
+The transpiler is a standalone program, kept in
+[its own repository](https://github.com/singularityos-lab/vetro), and must be on
+your `PATH` for the build to find it. Download the prebuilt binary from the
+[latest release](https://github.com/singularityos-lab/vetro/releases/latest), or
+see [Build from source](/docs/build-from-source/) for the exact install steps,
+including immutable systems.
 
 ## Wiring it up in Vala
 

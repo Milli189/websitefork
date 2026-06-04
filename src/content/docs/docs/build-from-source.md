@@ -111,8 +111,37 @@ stops on a missing `pnp.ids`.
 
 The `vetro` transpiler is a separate program, kept in
 [its own repository](https://github.com/singularityos-lab/vetro), and the build
-does not fetch it for you. It is a small Go tool, so build it once and drop the
-binary somewhere on your `PATH` (Go is already in the dependency lists above):
+does not fetch it for you. The quickest way is to download the prebuilt binary
+from the latest release, picking the matching architecture:
+
+```sh
+case "$(uname -m)" in
+  x86_64)        arch=amd64 ;;
+  aarch64|arm64) arch=arm64 ;;
+  *) echo "unsupported architecture: $(uname -m)"; exit 1 ;;
+esac
+curl -L -o vetro \
+  "https://github.com/singularityos-lab/vetro/releases/latest/download/vetro-linux-$arch"
+chmod +x vetro
+sudo install -Dm755 vetro /usr/local/bin/vetro
+```
+
+The `releases/latest/download/` path always resolves to the newest release, so
+the command does not need updating between versions. Check the result with
+`vetro --version`.
+
+On immutable distributions, or anywhere `/usr/local/bin` is not writable, install
+it into your home instead:
+
+```sh
+install -Dm755 vetro ~/.local/bin/vetro
+```
+
+Make sure `~/.local/bin` is on your `PATH`; if it is not, add it (for example with
+`export PATH="$HOME/.local/bin:$PATH"` in your shell profile).
+
+Prefer to build it yourself? It is a small Go tool (Go is already in the
+dependency lists above):
 
 ```sh
 git clone https://github.com/singularityos-lab/vetro.git
