@@ -61,6 +61,20 @@ is missing at build time, wlroots and labwc quietly disable X11 support. Install
 your distribution's Xwayland package (`xwayland` on Debian/Ubuntu, `xorg-xwayland`
 on Arch, `xorg-x11-server-Xwayland-devel` on Fedora) and rebuild.
 
+## Screenshots do not work
+
+Screenshots only work inside the Singularity session. The built-in tool captures
+through the `wlr-screencopy` Wayland protocol (with a `grim` fallback), and
+third-party tools such as Flameshot go through `xdg-desktop-portal` and the
+`xdg-desktop-portal-singularity` backend. Under GNOME, KDE or any non-wlroots
+compositor none of that is available, so capture fails.
+
+Check that you are running inside the Singularity session (log in through the
+[greeter](/docs/first-boot/), or run `singularity-labwc-session` from a TTY), that
+`xdg-desktop-portal` is running, and that `xdg-desktop-portal-singularity` and
+`grim` are installed. `wl-clipboard` (`wl-copy`) is needed to copy the result to
+the clipboard.
+
 ## The shell crashed or looks wrong
 
 The session keeps the shell alive and restarts it if it stops, so a glitch
