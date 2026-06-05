@@ -90,7 +90,7 @@ sudo apt install \
   libxkbcommon-dev libwayland-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev \
   libatspi2.0-dev libdbusmenu-glib-dev libsystemd-dev libpng-dev \
   libsodium-dev libgcrypt20-dev libpam0g-dev \
-  libseat-dev libudev-dev libgbm-dev libdisplay-info-dev hwdata xwayland
+  libseat-dev libudev-dev libgbm-dev libdisplay-info-dev libliftoff-dev hwdata xwayland
 ```
 
 On Arch:
@@ -105,7 +105,7 @@ sudo pacman -S --needed \
   libgudev librsvg poppler-glib webkitgtk-6.0 libxml2 pango cairo pixman \
   libdrm libinput libxkbcommon wayland libxcb xcb-util-wm at-spi2-core \
   libdbusmenu-glib systemd libpng libsodium libgcrypt pam \
-  seatd mesa libdisplay-info hwdata xorg-xwayland
+  seatd mesa libdisplay-info libliftoff hwdata xorg-xwayland
 ```
 
 On Fedora:
@@ -125,7 +125,7 @@ sudo dnf install \
   libxkbcommon-devel wayland-devel libxcb-devel xcb-util-wm-devel \
   at-spi2-core-devel libdbusmenu-devel systemd-devel libpng-devel \
   libsodium-devel libgcrypt-devel pam-devel \
-  libseat-devel mesa-libgbm-devel libdisplay-info-devel hwdata-devel xorg-x11-server-Xwayland-devel
+  libseat-devel mesa-libgbm-devel libdisplay-info-devel libliftoff-devel hwdata-devel xorg-x11-server-Xwayland-devel
 ```
 
 labwc always builds `wlroots` from source as part of the build and links it
