@@ -38,14 +38,32 @@ install, while `make deploy-host` is the full deploy (bundled libraries, portal
 and systemd wiring, the icon theme, and the session entry). Either way, run
 Singularity from inside its session for the `/opt/local` environment to apply.
 
+## Upgrading an existing build
+
+Pull the latest sources (the submodules move too, so update them) and rebuild:
+
+```sh
+git pull --recurse-submodules
+make compile
+make install
+```
+
+Use `make deploy-host` instead of `make install` when the change touches bundled
+libraries, the portal, the session wiring, or the compositor.
+
+If the shell is already running, reload it in place: press `Super+Tab`, type
+`r`, and submit, then wait a moment for the shell to come back. For larger
+changes (compositor, libraries, session) skip the in-place reload and reboot
+instead.
+
 ## What you need
 
 The build is GTK4 and Vala throughout, driven by meson, and it pulls in a fair
 number of libraries. The shell uses GTK4, gtk4-layer-shell, VTE, libpeas,
 PulseAudio, NetworkManager, UPower, polkit, libsoup, and Tracker, plus the Wayland
 and X libraries; the apps add GtkSourceView, GStreamer, GNOME Online Accounts,
-libsecret, poppler, and WebKitGTK; and the labwc compositor brings the usual
-wlroots stack. You also need the build tools (meson, ninja, Vala, git, gettext,
+libsecret, poppler, and WebKitGTK; the xdg-desktop-portal-singularity backend also
+links gtk4-layer-shell; and the labwc compositor brings the usual wlroots stack. You also need the build tools (meson, ninja, Vala, git, gettext,
 pkg-config, gobject-introspection, wayland-scanner, scdoc) and the `vetro`
 transpiler on your `PATH`, since the build invokes it to turn `.vetro` files into
 GTK `.ui`. See [vetro](/docs/vetro/).
