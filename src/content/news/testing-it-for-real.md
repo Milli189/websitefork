@@ -6,7 +6,7 @@ description: The portal "didn't work" for a lot of people. Instead of guessing a
 
 Another day, another fresh batch of bugs. The one that would not leave me alone was the portal: taking a screenshot did nothing, third-party tools reported that capture was unavailable, and someone filed it plainly as [the portal not running by default](https://github.com/singularityos-lab/singularity-desktop/issues/32). I had already "fixed" screenshots once, so watching it come straight back nagged at me.
 
-Here is the uncomfortable part. I had been testing on my own machine, where it all worked, and pushing fixes I had not actually verified on a clean system. That is not testing, that is hoping. So I stopped, built a fresh Fedora install in a VM, and went through it the way a new user would: clone, build, install, log in.
+Here is the uncomfortable part. I run Vanilla OS 3 Reborn, and on my own machine the portal worked, so I had been pushing fixes I never actually verified anywhere else. That is not testing, that is hoping. Most of the reports were coming from Fedora 44, so I built a fresh Fedora 44 install in a VM and went through it the way a new user would: clone, build, install, log in. The bugs showed up right away, the ones I could never see at home.
 
 It was not one bug. It was a chain, and each link hid the next.
 
