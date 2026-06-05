@@ -15,8 +15,8 @@ care about first.
 So far it has been tested only on Vanilla OS 2 Orchid, Vanilla OS 3 Reunion,
 Debian Sid, and Ubuntu 26.04 (Resolute Raccoon). Other systems may not work.
 
-On immutable systems, do not install into the system prefix. Use
-`make deploy-host`, which deploys to `/opt/local`, instead.
+On immutable systems, do not install into the system prefix. `make install`
+already deploys to `/opt/local`, the persistent writable prefix.
 :::
 
 ## The OS image
@@ -38,8 +38,10 @@ make compile
 make install
 ```
 
-`make install` installs to `/usr/local`. There is also `make deploy-host`, which
-deploys to `/opt/local` for container-based workflows.
+`make install` does the full install to `/opt/local` (binaries, bundled
+libraries, portal and systemd wiring, icon theme, and session entry), and
+self-elevates when needed. `make deploy-host` is a deprecated alias kept for
+compatibility; it now just runs `make install`.
 
 Once installed, the session shows up in your display manager. Log in through the
 [greeter](/docs/first-boot/) and pick the Singularity session.

@@ -33,10 +33,11 @@ cd singularity-desktop
 make compile
 ```
 
-Both install targets write to `/opt/local`: `make install` does a lighter
-install, while `make deploy-host` is the full deploy (bundled libraries, portal
-and systemd wiring, the icon theme, and the session entry). Either way, run
-Singularity from inside its session for the `/opt/local` environment to apply.
+`make install` writes the full install to `/opt/local`: binaries, bundled
+libraries, the portal and systemd wiring, the icon theme, and the session entry.
+(`make deploy-host` is a deprecated alias that now just runs `make install`; the
+two were unified into one process.) Run Singularity from inside its session for
+the `/opt/local` environment to apply.
 
 ## Upgrading an existing build
 
@@ -47,9 +48,6 @@ git pull --recurse-submodules
 make compile
 make install
 ```
-
-Use `make deploy-host` instead of `make install` when the change touches bundled
-libraries, the portal, the session wiring, or the compositor.
 
 If the shell is already running, reload it in place: press `Super+Tab`, type
 `r`, and submit, then wait a moment for the shell to come back. For larger
@@ -191,7 +189,7 @@ turn the `.vetro` files into GTK `.ui`.
 
 ## Immutable systems: host runtime libraries
 
-On immutable distributions you install into `/opt` with `make deploy-host`, but the
+On immutable distributions you install into `/opt` with `make install`, but the
 shared libraries Singularity links against still have to be present on the host
 image. On Vanilla OS 3 Reunion (Debian-based) the packages to layer onto the host
 are:
