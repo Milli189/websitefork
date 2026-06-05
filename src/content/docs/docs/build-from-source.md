@@ -91,7 +91,8 @@ sudo apt install \
   libpango1.0-dev libcairo2-dev libpixman-1-dev libdrm-dev libinput-dev \
   libxkbcommon-dev libwayland-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev \
   libatspi2.0-dev libdbusmenu-glib-dev libsystemd-dev libpng-dev \
-  libsodium-dev libgcrypt20-dev libpam0g-dev xwayland
+  libsodium-dev libgcrypt20-dev libpam0g-dev \
+  libseat-dev libudev-dev libgbm-dev libdisplay-info-dev hwdata xwayland
 ```
 
 On Arch:
@@ -105,7 +106,8 @@ sudo pacman -S --needed \
   libpulse networkmanager upower polkit libsoup3 tinysparql libsecret \
   libgudev librsvg poppler-glib webkitgtk-6.0 libxml2 pango cairo pixman \
   libdrm libinput libxkbcommon wayland libxcb xcb-util-wm at-spi2-core \
-  libdbusmenu-glib systemd libpng libsodium libgcrypt pam xorg-xwayland
+  libdbusmenu-glib systemd libpng libsodium libgcrypt pam \
+  seatd mesa libdisplay-info hwdata xorg-xwayland
 ```
 
 On Fedora:
@@ -124,13 +126,22 @@ sudo dnf install \
   pango-devel cairo-devel pixman-devel libdrm-devel libinput-devel \
   libxkbcommon-devel wayland-devel libxcb-devel xcb-util-wm-devel \
   at-spi2-core-devel libdbusmenu-devel systemd-devel libpng-devel \
-  libsodium-devel libgcrypt-devel pam-devel wlroots-devel xorg-x11-server-Xwayland-devel
+  libsodium-devel libgcrypt-devel pam-devel \
+  libseat-devel mesa-libgbm-devel libdisplay-info-devel hwdata-devel xorg-x11-server-Xwayland-devel
 ```
 
-If your distribution does not package the `wlroots` version labwc needs, labwc
-builds it from source as part of the build. That path also needs `hwdata` (and
-`glslang` for wlroots' Vulkan renderer), so install `hwdata` if the labwc build
-stops on a missing `pnp.ids`.
+labwc always builds `wlroots` from source as part of the build and links it
+statically, so a known-good wlroots is used regardless of what the distro
+ships. You do not need a system `wlroots` package (if one is installed it is
+ignored, so there is no reason to remove it).
+
+wlroots' DRM backend (needed for real hardware sessions, as opposed to running
+nested) only builds when `hwdata`, `libdisplay-info` (>=0.2.0), `gbm` (Mesa),
+`libdrm`, `libseat`, and `libudev` are all present; the lists above include
+them. On Fedora the pkg-config file for hwdata ships in `hwdata-devel`, not
+`hwdata`, which is why it is listed that way. If `wlroots` reports
+`drm-backend: NO` during the build, one of those is missing. The optional
+Vulkan renderer additionally needs `glslang`.
 
 ## Vetro
 
