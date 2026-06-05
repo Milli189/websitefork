@@ -14,6 +14,21 @@ sessions, and that you picked the Singularity session in the
 standard system locations, so a session installed somewhere unusual will not
 appear.
 
+## The compositor exits with "unable to create backend"
+
+labwc fails this way when it cannot acquire a seat or open the GPU. Logging in
+through a display manager (which creates a systemd-logind seat session) normally
+handles this for you. If you start the session another way (from a TTY, over
+SSH, or a non-logind setup), make sure:
+
+- your user is in the `video`, `render`, and `input` groups (`sudo usermod -aG
+  video,render,input "$USER"`, then log out and back in), so the compositor can
+  open the DRM/render nodes and input devices;
+- a seat provider is running: systemd-logind (the default) or, on systems
+  without it, `seatd` (enable it and make sure your user can reach its socket,
+  e.g. run it with `seatd -g <a-group-you-are-in>`);
+- `polkit` is installed.
+
 ## Singularity is not listed on the login screen
 
 Display managers (SDDM, GDM, and the rest) only show sessions whose `.desktop`
