@@ -125,7 +125,8 @@ sudo dnf install \
   libxkbcommon-devel wayland-devel libxcb-devel xcb-util-wm-devel \
   at-spi2-core-devel libdbusmenu-devel systemd-devel libpng-devel \
   libsodium-devel libgcrypt-devel pam-devel \
-  libseat-devel mesa-libgbm-devel libdisplay-info-devel libliftoff-devel hwdata-devel xorg-x11-server-Xwayland-devel
+  libseat-devel mesa-libgbm-devel libdisplay-info-devel libliftoff-devel hwdata-devel xorg-x11-server-Xwayland-devel \
+  grim cmake
 ```
 
 labwc always builds `wlroots` from source as part of the build and links it
