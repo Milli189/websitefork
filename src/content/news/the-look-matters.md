@@ -1,7 +1,7 @@
 ---
 title: The look matters
 date: 2026-06-07
-description: A day spent on the things you see before you do anything: the top bar reading its own background, windows from every toolkit finally wearing the same clothes, and a small shift in how I think about decorations.
+description: "A day spent on the things you see before you do anything: the top bar reading its own background, windows from every toolkit finally wearing the same clothes, and a small shift in how I think about decorations."
 ---
 
 Most of today wasn't about features. It was about the moment before you do anything, when you've just logged in and the desktop is sitting there, and it either looks like one coherent thing or like a few programs that happen to share a screen. I spent the day closing that gap.
